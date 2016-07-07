@@ -28,8 +28,7 @@
 * [tools](bioinf/tools/README.md)
    * [circos](bioinf/tools/circos.md)
    * [bcl2fastq](bioinf/tools/bcl2fastq.md)
-* [We love feedback](bioinf/feedback_please.md)
-* [Better tools for authors](bioinf/better_tools.md)
+
 * 检测技术
    * [NGS](clinical/NGS/README.md)
        * [NextSeq500 flowcell](clinical/NGS/NextSeq500_flowcell.md)
@@ -43,6 +42,7 @@
    * 肿瘤
    * 遗传病
    * 微生物
-* [男人比女人为后代带来了更多的突变](misc/males-contribute-more-mutations-than-females.md)
+   * 
+   * [男人比女人为后代带来了更多的突变](misc/males-contribute-more-mutations-than-females.md)
 * [blog](blog)
 
