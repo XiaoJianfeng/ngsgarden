@@ -1,0 +1,23 @@
+# This is a comment
+
+# Ignore the file test.md
+test.md
+
+# Ignore everything in the directory "bin"
+bin/*
+
+# .DS_Store on Mac
+.DS_Store
+
+# _book/ created by gitbook build
+_book/
+
+# book.pdf created by gitbook pdf
+book.pdf
+
+# node_modules/ created by npm
+node_modules/
+
+# *bak
+*.bak
+*.bak2

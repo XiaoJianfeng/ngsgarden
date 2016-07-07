@@ -1,0 +1,36 @@
+{
+    "plugins": [ "atoc", "packt-fontsettings"],
+
+    "pluginsConfig": {
+        "atoc": {
+            "addClass": true,
+            "className": "atoc"
+        },
+	"fontSettings": {
+	    "theme": "white",
+	    "family": "sans",
+	    "size":  3 
+	}
+    },
+
+    "pdf": {
+        "pageNumber": true,
+        "fontSize": 12,
+        "fontFamily": 	"Arial",
+        "paperSize": 	"a4",
+
+        "margin": {
+	    "top": 	56,
+	    "bottom": 	56,
+	    "right": 	62,
+	    "left": 	62
+	}
+    },
+
+    "_comment1": " Header HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.",
+    "headerTemplate": null,
+
+    "_comment2": " Footer HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.",
+    "footerTemplate": "_PAGENUM_"
+
+}
