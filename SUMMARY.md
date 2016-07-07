@@ -60,8 +60,7 @@
     * [遗传病]()
     * [微生物]()
 
-### Part IV. 杂项
-* [男人比女人为后代带来了更多的突变](./misc/males-contribute-more-mutations-than-females.md)
+### Part IV. [杂项](misc/README.md)
 
 ----
 

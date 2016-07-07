@@ -28,9 +28,9 @@
     },
 
     "_comment1": " Header HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.",
-    "headerTemplate": null,
+    "headerTemplate": "_AUTHOR_ | _PAGENUM_",
 
     "_comment2": " Footer HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.",
-    "footerTemplate": "_PAGENUM_"
+    "footerTemplate": "上海艾迪康医学检验所"
 
 }
