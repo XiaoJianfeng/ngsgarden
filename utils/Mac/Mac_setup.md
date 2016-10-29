@@ -22,6 +22,26 @@
 
 选择`System Preferences` -> `Keyboard`，在Keyboard标签页中选中`Use all F1, F2, etc. keys as standard function keys`。
 
+## 触摸板的设置
+
+* 使用四指代替三指
+
+选择`System Preferences` -> `TrackPad` -> `More Guestures`, 所有使用三指的都选择用四指。
+
+* 使用三指拖动和选择
+
+选择`System Preferences` -> `Accessibility` -> `Mouse & TrackPad` -> `TrackPad Options`, `Enable Dragging` 选择`three finger drag`。
+
+## 使用zsh代替bash
+
+bash很好，但是zsh更好。
+
+```
+$ which zsh
+/bin/zsh
+# make sure /bin/zsh is in file "/etc/shells"
+$ sudo chsh -s /
+```
 
 ## 主机名(hostname)设置
 
@@ -40,6 +60,26 @@
 > new_hostname  
 > username@bogon[s002] ~>  
 ```
+
+## 启用locate
+
+locate默认是不启动的，需要手动启动。
+
+```
+$ locate something
+
+WARNING: The locate database (/var/db/locate.database) does not exist.
+To create the database, run the following command:
+
+  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
+Please be aware that the database can take some time to generate; once
+the database has been created, this message will no longer appear.
+
+$ sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+Password:
+```
+
 
 ## 将Microsoft Outlook导出的.ost文件导入到Mac电脑上的mail.app
 
@@ -126,3 +166,11 @@ Name (User Visible):      Mac OS Extended (Journaled)
     ```brew install macvim``` or ```brew upgrade macvim```
 
 3. close the terminal, so your `$PATH` will restore to default.
+
+## 直接安装macvim
+
+当系统上使用anconda安装python之后，使用brew安装macvim有些麻烦，容易出错，最可靠的还是直接到macvim网站下载二进制安装包安装。
+
+```http://macvim-dev.github.io/macvim/```
+
+安装只需要将MacVim.app拖到/Applications里面去，另外，把“mvim”放到环境变量PATH能找到的地方去就可以在命令行里面使用mvim启动MacVim了。

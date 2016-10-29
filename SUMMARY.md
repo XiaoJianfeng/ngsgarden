@@ -10,9 +10,7 @@
     * [Mac 配置](utils/Mac/Mac_setup.md)
     * [文献管理：Zotero + Firefox + Safari]()
     * [virtualbox]()
-    * [homebrew]()
-    * [zsh]()
-    * [perl](utils/Mac/perl.md)
+    * [软件管理](utils/Mac/homebrew.md)
     * [tools](utils/Mac/tools.md)
 
 * [手机](utils/smartphone/README.md)
@@ -34,6 +32,7 @@
 * [编程](utils/Programming/README.md)
     * [Python](utils/Programming/Python/README.md)
     * [R](utils/Programming/R/README.md) 
+    * [Vim](utils/Programming/Vim/Vim.md) 
 
 ### Part II. 生物信息学
 
