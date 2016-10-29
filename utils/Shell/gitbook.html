@@ -500,32 +500,6 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="../../bioinf/feedback_please.md">
-            
-                <span>
-            
-                    
-                    We love feedback
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="3.3" data-path="../../bioinf/better_tools.md">
-            
-                <span>
-            
-                    
-                    Better tools for authors
-            
-                </a>
-            
-
-            
-        </li>
-    
 
     
         
@@ -827,7 +801,45 @@
  &#x1F37A;  calibre staged at &apos;/opt/homebrew-cask/Caskroom/calibre/2.57.1&apos; (3887 files, 205M)
 </code></pre></li>
 <li><p>&#x66F4;&#x65B0;</p>
-<p><code>&gt; npm update -g</code></p>
+<p> <code>&gt; npm update -g</code></p>
+</li>
+</ol>
+<h2 id="gitbook-&#x5EFA;&#x7ACB;&#x65B0;&#x9879;&#x76EE;">gitbook &#x5EFA;&#x7ACB;&#x65B0;&#x9879;&#x76EE;</h2>
+<pre><code>```
+$ mkdir ngsgarden
+$ cd ngsgarden
+$ gitbook init
+$ vim .gitignore # &#x5C06;&quot;_book/&quot;, .DS_Store, book.pdf, node_modules/ &#x548C;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x6587;&#x4EF6;&#x5047;&#x5982;&#x5FFD;&#x7565;&#x5217;&#x8868;
+$ # &#x7136;&#x540E;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#x5E76;commit&#x5230;&#x672C;&#x5730;&#x3002;
+$ gitbook build   # &#x9996;&#x5148;&#x5220;&#x9664;_book/&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x65B0;&#x5C06;&#x4EA7;&#x751F;&#x7684;book&#x7684;webpage&#x5B58;&#x653E;&#x4E0E;&#x8BE5;&#x76EE;&#x5F55;&#x4E0B;&#x3002;
+$ git add .
+$ git commit -m &quot;initial commit&quot; 
+```
+</code></pre><h2 id="gitbook&#x7684;&#x4EE3;&#x7801;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x4E66;&#x90FD;&#x6258;&#x7BA1;&#x5728;github&#x4E0A;">gitbook&#x7684;&#x4EE3;&#x7801;&#x548C;&#x8F93;&#x51FA;&#x7684;&#x4E66;&#x90FD;&#x6258;&#x7BA1;&#x5728;github&#x4E0A;</h2>
+<ol>
+<li><p>github&#x4E0A;&#x5EFA;&#x7ACB;&#x8BE5;&#x9879;&#x76EE;&#x7684;&#x4EE3;&#x7801;&#x5E93; <code>https://github.com/XiaoJianfeng/ngsgarden.git</code></p>
+</li>
+<li><p>&#x5C06;&#x4EE3;&#x7801;&#x5E93;&#x63D0;&#x4EA4;&#x5230;github</p>
+<pre><code> $ cd ngsgarden
+ $ git remote add origin https://github.com/XiaoJianfeng/ngsgarden.git
+ $ git push origin master
+</code></pre></li>
+<li><p>&#x5EFA;&#x7ACB;gh-pages&#x8FD9;&#x4E2A;&#x5206;&#x652F;&#x3002;</p>
+<pre><code> $ git checkout -b gh-pages  # &#x5EFA;&#x7ACB;&#x5206;&#x652F;gh-pages
+ $ git push origin gh-pages  # &#x63D0;&#x4EA4;&#x66F4;&#x6539;&#x5230;&#x8FDC;&#x7A0B;
+ $ git checkout master       # &#x6062;&#x590D;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E3A;master&#x5206;&#x652F;
+</code></pre></li>
+<li><p>&#x4E3A;gh-pages&#x5EFA;&#x7ACB;&#x5355;&#x72EC;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5E76;&#x5C06;<code>gitbook build</code>&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x5939;<code>_book/</code>&#x590D;&#x5236;&#x8FC7;&#x53BB;&#x3002;</p>
+<p> &#x56E0;&#x4E3A;<code>gitbook build</code>&#x547D;&#x4EE4;&#x4F1A;&#x5148;&#x5220;&#x9664;<code>_book/</code>&#x76EE;&#x5F55;&#x4E0B;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#xFF0C;&#x5047;&#x5982;&#x7528;<code>_book/</code>&#x505A;<code>gh-pages</code>&#x7684;&#x76EE;&#x5F55;&#x7684;&#x8BDD;&#xFF0C;&#x91CC;&#x9762;&#x7684;<code>.git</code>&#x6587;&#x4EF6;&#x5939;&#x4F1A;&#x5728;&#x8FD9;&#x4E00;&#x6B65;&#x88AB;&#x5220;&#x6389;&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x80FD;&#x53E6;&#x5728;&#x5916;&#x5EFA;&#x7ACB;<code>gh-pages</code>&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x6BCF;&#x6B21;&#x8FD0;&#x884C;<code>gitbook build</code>&#x540E;&#x5C06;&#x6240;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x8FC7;&#x53BB;&#x3002;</p>
+<pre><code> $ cd ..  # &#x79BB;&#x5F00;master&#x5206;&#x652F;&#x6240;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x5939;
+ $ git clone -b gh-pages https://github.com/XiaoJianfeng/ngsgarden.git ngsgarden_book
+ $ cd ngsgarden_book
+ $ cp -r ../ngsgarden/_book/* .   #&#x6BCF;&#x6B21;&#x8FD0;&#x884C;`gitbook build`&#x540E;&#x5C06;&#x6240;&#x751F;&#x6210;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x8FC7;&#x53BB;&#x3002;
+ $ git add .
+ $ git commit -m &quot;[commit message]&quot;
+ $ git push origin gh-pages
+</code></pre><p> &#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x5728;<a href="https://xiaojianfeng.github.io/ngsgarden/&#x770B;&#x5230;ngsgarden&#x7684;webpage&#x4E86;&#x3002;" target="_blank">https://xiaojianfeng.github.io/ngsgarden/&#x770B;&#x5230;ngsgarden&#x7684;webpage&#x4E86;&#x3002;</a></p>
+<p> &#x4EE5;&#x540E;&#x6BCF;&#x6B21;&#x5728;<code>master</code>&#x5206;&#x652F;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x8FDB;&#x884C;&#x7F16;&#x8F91;&#xFF0C;&#x5E76;&#x8FD0;&#x884C;<code>gitbook build</code>&#xFF0C;&#x5C06;&#x751F;&#x6210;&#x7684;<code>_book/</code>&#x590D;&#x5236;&#x5230;<code>gh-pages</code>&#x6240;&#x5728;&#x7684;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x7136;&#x540E;&#x63D0;&#x4EA4;&#x5230;&#x8FDC;&#x7A0B;&#x3002;</p>
 </li>
 </ol>
 <script type="text/javascript">var className='atoc';</script>
@@ -873,7 +885,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"gitbook","level":"2.4.3","depth":2,"next":{"title":"杂项","level":"2.4.4","depth":2,"path":"utils/Shell/misc.md","ref":"utils/Shell/misc.md","articles":[]},"previous":{"title":"git","level":"2.4.2","depth":2,"path":"utils/Shell/git.md","ref":"utils/Shell/git.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","packt-fontsettings","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"packt-fontsettings":{"family":"sans","size":2,"theme":"white"},"livereload":{},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"family":"sans","size":2,"theme":"white"},"fontSettings":{"theme":"white","family":"sans","size":3},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"headerTemplate":"_AUTHOR_ | _PAGENUM_","theme":"default","_comment1":" Header HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"pageNumber":true},"_comment2":" Footer HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"footerTemplate":"上海艾迪康医学检验所","variables":{},"gitbook":"*"},"file":{"path":"utils/Shell/gitbook.md","mtime":"2016-07-07T05:48:32.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-10-29T16:27:57.488Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"gitbook","level":"2.4.3","depth":2,"next":{"title":"杂项","level":"2.4.4","depth":2,"path":"utils/Shell/misc.md","ref":"utils/Shell/misc.md","articles":[]},"previous":{"title":"git","level":"2.4.2","depth":2,"path":"utils/Shell/git.md","ref":"utils/Shell/git.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","packt-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"packt-fontsettings":{"family":"sans","size":2,"theme":"white"},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"family":"sans","size":2,"theme":"white"},"fontSettings":{"theme":"white","family":"sans","size":3},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"headerTemplate":"_AUTHOR_ | _PAGENUM_","theme":"default","_comment1":" Header HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"pageNumber":true},"_comment2":" Footer HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"footerTemplate":"上海艾迪康医学检验所","variables":{},"gitbook":"*"},"file":{"path":"utils/Shell/gitbook.md","mtime":"2016-10-29T17:37:34.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-10-29T17:53:48.825Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -888,10 +900,6 @@
     
         
         <script src="../../gitbook/gitbook-plugin-packt-fontsettings/buttons.js"></script>
-        
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
