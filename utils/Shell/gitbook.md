@@ -54,4 +54,57 @@
 
 5. 更新
 
-   `> npm update -g`
+    `> npm update -g`
+
+## gitbook 建立新项目
+
+    ```
+    $ mkdir ngsgarden
+    $ cd ngsgarden
+    $ gitbook init
+    $ vim .gitignore # 将"_book/", .DS_Store, book.pdf, node_modules/ 和其他一些不必要的文件假如忽略列表
+    $ # 然后进行编辑并commit到本地。
+    $ gitbook build   # 首先删除_book/下的所有文件，然后重新将产生的book的webpage存放与该目录下。
+    $ git add .
+    $ git commit -m "initial commit" 
+    ```
+
+
+
+## gitbook的代码和输出的书都托管在github上
+
+1. github上建立该项目的代码库 `https://github.com/XiaoJianfeng/ngsgarden.git`
+
+2. 将代码库提交到github
+
+    ```
+    $ cd ngsgarden
+    $ git remote add origin https://github.com/XiaoJianfeng/ngsgarden.git
+    $ git push origin master
+    ```
+
+3. 建立gh-pages这个分支。
+
+    ```
+    $ git checkout -b gh-pages  # 建立分支gh-pages
+    $ git push origin gh-pages  # 提交更改到远程
+    $ git checkout master       # 恢复当前目录为master分支
+    ```
+
+4. 为gh-pages建立单独的文件夹，并将`gitbook build`生成的文件夹`_book/`复制过去。
+
+    因为`gitbook build`命令会先删除`_book/`目录下的所有文件，假如用`_book/`做`gh-pages`的目录的话，里面的`.git`文件夹会在这一步被删掉，所以只能另在外建立`gh-pages`的文件夹，每次运行`gitbook build`后将所生成的文件复制过去。
+
+    ```
+    $ cd ..  # 离开master分支所在的文件夹
+    $ git clone -b gh-pages https://github.com/XiaoJianfeng/ngsgarden.git ngsgarden_book
+    $ cd ngsgarden_book
+    $ cp -r ../ngsgarden/_book/* .   #每次运行`gitbook build`后将所生成的文件复制过去。
+    $ git add .
+    $ git commit -m "[commit message]"
+    $ git push origin gh-pages
+    ```
+
+    然后就可以在https://xiaojianfeng.github.io/ngsgarden/看到ngsgarden的webpage了。
+
+    以后每次在`master`分支的文件夹进行编辑，并运行`gitbook build`，将生成的`_book/`复制到`gh-pages`所在的文件夹，然后提交到远程。

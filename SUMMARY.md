@@ -39,8 +39,6 @@
 * [tools](bioinf/tools/README.md)
     * [circos](bioinf/tools/circos.md)
     * [bcl2fastq](bioinf/tools/bcl2fastq.md)
-* [We love feedback](bioinf/feedback_please.md)
-* [Better tools for authors](bioinf/better_tools.md)
 
 ### Part III. 检测技术与临床应用
 
