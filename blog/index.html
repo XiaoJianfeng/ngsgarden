@@ -1,1 +1,1208 @@
-/Users/xiaojf/personal/blog/technotes/output/index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+        <title>Tech Notes</title>
+        <meta charset="utf-8" />
+
+
+        <!-- Mobile viewport optimized: j.mp/bplateviewport -->
+        <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
+
+        <link rel="stylesheet" type="text/css" href="http://xiaojianfeng.github.io/theme/gumby.css" />
+        <link rel="stylesheet" type="text/css" href="http://xiaojianfeng.github.io/theme/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://xiaojianfeng.github.io/theme/pygment.css" />
+
+        <script src="http://xiaojianfeng.github.io/theme/js/libs/modernizr-2.6.2.min.js"></script>
+
+
+
+
+</head>
+
+<body id="index" class="home">
+
+
+    <div class="container">
+
+        <div class="row">
+
+          <header id="banner" class="body">
+                  <h1><a href="http://xiaojianfeng.github.io/">Tech Notes <strong></strong></a></h1>
+          </header><!-- /#banner -->
+
+            <div id="navigation" class="navbar row">
+              <a href="#" gumby-trigger="#navigation &gt; ul" class="toggle"><i class="icon-menu"></i></a>
+             
+              <ul class="columns">
+                <li><a href="http://xiaojianfeng.github.io/">Home</a></li>
+
+
+              </ul>
+            </div>
+
+<section id="content">
+
+
+
+   <div class="row">
+
+
+        <div class="eleven columns">
+                 <ol id="post-list">
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/utils/install-gitbooks.html" rel="bookmark" title="Permalink to install gitbooks">install gitbooks</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2016-05-22T23:15:00+08:00"> Sun 22 May 2016 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <h4>1. install node</h4>
+<div class="highlight"><pre><span></span>&gt; brew install node
+</pre></div>
+
+
+<h4>2. install gitbook-cli</h4>
+<div class="highlight"><pre><span></span>&gt; npm install -g gitbook-cli
+</pre></div>
+
+
+<h4>3. (optional) Repair directory permissions if previous step encountered problem.</h4>
+<div class="highlight"><pre><span></span>&gt; sudo chown -R $(whoami) $(brew --prefix)
+&gt; npm install -g gitbook-cli
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/utils/install-gitbooks.html" rel="bookmark" title="Permalink to install gitbooks">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="http://xiaojianfeng.github.io/tag/code.html">code</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/install-circos-on-ubuntu.html" rel="bookmark" title="Permalink to install circos on ubuntu">install circos on ubuntu</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2016-04-11T18:56:00+08:00"> Mon 11 April 2016 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <ol>
+<li>
+<p>install cpanm and config cpan to use CPAN mirros located in China</p>
+</li>
+<li>
+<p>download circos and unzip it to appropriate location</p>
+</li>
+<li>
+<p>install required perl libraries with cpanm</p>
+</li>
+</ol>
+<div class="highlight"><pre><span></span><span class="x">    </span><span class="p">$</span><span class="x"> for m in </span><span class="p">$(</span><span class="err">./circos</span> <span class="err">-modules</span> <span class="err">|</span> <span class="err">grep</span> <span class="err">missing</span> <span class="err">|</span> <span class="err">awk</span> <span class="s1">&#39;{print $2}&#39;</span> <span class="err">|</span> <span class="err">cut</span> <span class="err">-f</span> <span class="m">2</span><span class="p">)</span><span class="x"></span>
+<span class="x">    &gt; do</span>
+<span class="x">    &gt; echo </span><span class="p">$</span><span class="nv">m</span><span class="x"></span>
+<span class="x">    &gt; cpanm --mirror http://mirrors.ustc.edu.cn/CPAN/ </span><span class="p">$</span><span class="nv">m</span><span class="x"></span>
+<span class="x">    &gt; done</span>
+
+<span class="x">    </span><span class="err">#</span><span class="x"> you may need to install libgd with </span><span class="p">$</span><span class="nv">sudo</span><span class="x"> aptitude install libgd-perl</span><span class="p">$</span><span class="x"></span>
+
+<span class="x">    </span><span class="err">#</span><span class="x"> edit first line of circos/bin/gddiag</span>
+<span class="x">        &quot;</span><span class="err">#</span><span class="x">!/bin/env perl&quot; --&gt;  &quot;</span><span class="err">#</span><span class="x">!/usr/bin/env perl&quot;</span>
+
+<span class="x">    </span><span class="err">#</span><span class="x"> then test if the installation works</span>
+<span class="x">    </span><span class="p">$</span><span class="x"> cd circos/example</span>
+<span class="x">    </span><span class="p">$</span><span class="x"> ./run</span>
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/install-circos-on-ubuntu.html" rel="bookmark" title="Permalink to install circos on ubuntu">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="http://xiaojianfeng.github.io/tag/linux.html">linux</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/brew-and-macvim.html" rel="bookmark" title="Permalink to brew and macvim">brew and macvim</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2016-02-22T11:12:00+08:00"> Mon 22 February 2016 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>there might be problem when you try to use <code>brew install macvim</code> if you already have conda python installed. It is because the installation of macvim via brew requires framework python. </p>
+<p>So in order to install macvim, and upgrade macvim:</p>
+<ol>
+<li>
+<p>Open a new terminal and run <code>export PATH=/System/Library/Frameworks/Python.framework/Versions/2.7/bin:$PATH</code>, but don't put this line in your .bashrc or .zshrc.</p>
+</li>
+<li>
+<p><code>brew install macvim</code> or <code>brew upgrade macvim</code></p>
+</li>
+<li>
+<p>close the terminal, so your <code>$PATH</code> will restore to default.</p>
+</li>
+</ol> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/brew-and-macvim.html" rel="bookmark" title="Permalink to brew and macvim">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="http://xiaojianfeng.github.io/tag/mac.html">mac</a>
+                                            <a class="danger label" href="http://xiaojianfeng.github.io/tag/brew.html">brew</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/clinical/males-contribute-more-mutations-than-females.html" rel="bookmark" title="Permalink to Males Contribute More Mutations Than Females">Males Contribute More Mutations Than Females</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2016-02-01T19:30:00+08:00"> Mon 01 February 2016 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>A good explanation from http://users.rcn.com/jkimball.ma.ultranet/BiologyPages/M/Mutations.html#Males_Contribute_More_Mutations_Than_Females.</p>
+<div class="highlight"><pre>If most mutations occur during S phase of cell division, then males should be more at risk. This is because
+
+* only two dozen (24) or so mitotic divisions occur from the fertilized egg that starts a little girl&#39;s embryonic development and the setting aside of her future eggs (which is done long before she is even born).
+* The sperm of a 30-year old man, in contrast, are the descendants of at least 400 mitotic divisions since the fertilized egg that formed him.
+
+So,
+
+* fathers are more likely than mothers to transmit newly-formed mutations to their children.
+    - The sperm of a 25-year-old man might carry some 45 new mutations. This number rises at a rate of about 1 per year, so the sperm of a 40-year-old man may transmit some 60 new mutations to his children (about 20 of these in coding regions).
+    - No matter what the age of the mother, she transmits only about 15 new mutations to her offspring. (But chromosomal aberrations, like aneuploidy, are more apt to arise in eggs than in sperm, and the incidence of these increases with maternal age.)
+* These data explain why the children of aged fathers suffer more genetic disorders than those of young fathers.
+</pre></div>
+
+
+<p>翻译如下：</p>
+<div class="highlight"><pre>假如大部分的突变都发生在细胞分裂的S期，那么男性产生突变的概率更高，因为：
+
+* 女性从受精卵的胚胎发育开始，到卵子的形成（在女性出生之前很久就已经形成），只经历了大概24次有丝分裂。
+
+* 与此相对，一个30岁男性的精子，是发育成该男性的受精卵经过至少400次有丝分裂的后代。
+
+所以，
+
+* 父亲比母亲更容易遗传新发的突变给子女。
+
+    - 一个25岁男子的精子可能携带大概45个新发突变，这个数字大概每年增加1，一个40岁男子的精子可能遗传60个新发突变给其子女（这其中有大约20突变位于编码区）。
+
+    - 不论母亲的年龄大小，其遗传给后代的突变数目大概是15个。但是染色体异常--比如多倍体--在卵子中产生的概率比在镜子中更高，并且此概率随着母亲年龄增加而增加。
+
+* 这些数据解释了为什么年老父亲的孩子患遗传病的概率比年轻父亲的孩子要高。
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/clinical/males-contribute-more-mutations-than-females.html" rel="bookmark" title="Permalink to Males Contribute More Mutations Than Females">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="http://xiaojianfeng.github.io/tag/mutation.html">mutation</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/install-perl-environment-on-mac.html" rel="bookmark" title="Permalink to install perl environment on Mac">install perl environment on Mac</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2016-01-28T13:43:00+08:00"> Thu 28 January 2016 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>i. install perlbrew</p>
+<div class="highlight"><pre><span></span><span class="err">#</span><span class="x"> override the default installation directory (</span><span class="p">$</span><span class="nv">HOME</span><span class="x">/perl5) in .zshrc</span>
+<span class="x">export PERLBREW_ROOT=</span><span class="p">$</span><span class="nv">HOME</span><span class="x">/.local/perl5</span>
+<span class="x">export PERLBREW_CPAN_MIRROR=http://mirrors.ustc.edu.cn/CPAN/</span>
+
+<span class="x">&gt; curl -L http://xrl.us/perlbrewinstall | bash</span>
+
+<span class="x">&gt; echo &quot;source ~/.local/perl5/perlbrew/etc/bashrc&quot; &gt;&gt; ~/.zshrc</span>
+</pre></div>
+
+
+<p>ii. install perl and cpanm</p>
+<div class="highlight"><pre><span></span>&gt; perlbrew available
+&gt; perlbrew install stable
+&gt; perlbrew list
+&gt; perlbrew switch perl-5.22.1
+&gt; perlbrew install install-cpanm
+
+&gt; alias cpanm=&#39;cpanm --from http://mirrors.ustc.edu.cn/CPAN/ &#39;
+</pre></div>
+
+
+<p>iii. install perl packages</p>
+<div class="highlight"><pre><span></span>&gt; cpanm Bio::SeqIO
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/install-perl-environment-on-mac.html" rel="bookmark" title="Permalink to install perl environment on Mac">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="http://xiaojianfeng.github.io/tag/mac.html">mac</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/a-few-unix-and-shell-tips.html" rel="bookmark" title="Permalink to a few Unix and Shell tips">a few Unix and Shell tips</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-11-03T20:47:00+08:00"> Tue 03 November 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <h2>automatically attach to a tmux session via SSH</h2>
+<div class="highlight"><pre>alias alias_name=&#39;ssh username@servername -t &quot;tmux attach || tmux&quot; &#39;
+
+-t Force pseudo-tty allocation. This can be used to execute arbitrary
+   screen-based programs on a remote machine, which can be very useful, e.g., when
+   implementing menu services.
+
+&quot;tmux attach&quot; tries to attach a tmux session. and if it fails, &quot;tmux&quot; will create a new session.
+</pre></div>
+
+
+<h2>to be continued.</h2> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/a-few-unix-and-shell-tips.html" rel="bookmark" title="Permalink to a few Unix and Shell tips">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                        <span>Tagged as : </span>
+                                            <a class="danger label" href="http://xiaojianfeng.github.io/tag/shell.html">shell</a>
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/use-alternative-mirror-for-macports.html" rel="bookmark" title="Permalink to use alternative mirror for macports">use alternative mirror for macports</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-07-19T00:25:00+08:00"> Sun 19 July 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <h3>modify /opt/local/etc/macports/macports.conf</h3>
+<div class="highlight"><pre># The rsync server for fetching MacPorts base during selfupdate. This
+# setting is NOT used when downloading the ports tree; the sources for
+# the ports tree are set in sources.conf. See
+# https://trac.macports.org/wiki/Mirrors#MacPortsSource for a list of
+# available servers.
+#rsync_server           rsync.macports.org
+rsync_server            mirrors.ustc.edu.cn
+# rsync_server          mirror.bit.edu.cn
+
+# Location of MacPorts base sources on rsync_server. If this references
+# a .tar file, a signed .rmd160 file must exist in the same directory
+# and will be used to verify its integrity. See
+# https://trac.macports.org/wiki/Mirrors#MacPortsSource to find the
+# correct rsync_dir for a particular rsync_server.
+#rsync_dir              release/tarballs/base.tar
+# mirrors.ustc.edu.cn
+rsync_dir               macports/base/
+# mirror.bit.edu.cn
+# rsync_dir             macports/release/ports/
+</pre></div>
+
+
+<h3>modify /opt/local/etc/macports/sources.conf</h3>
+<div class="highlight"><pre><span class="err">#</span> <span class="nx">A</span> <span class="nx">list</span> <span class="nx">of</span> <span class="nx">rsync</span> <span class="nx">mirrors</span> <span class="nx">is</span> <span class="nx">available</span> <span class="nx">at</span>
+<span class="err">#</span> <span class="nx">https</span><span class="o">:</span><span class="c1">//trac.macports.org/wiki/Mirrors#Portfiles.</span>
+<span class="err">#</span>
+<span class="err">#</span> <span class="nx">If</span> <span class="nx">an</span> <span class="s2">&quot;rsync://&quot;</span> <span class="nx">URL</span> <span class="nx">points</span> <span class="nx">to</span> <span class="nx">a</span> <span class="p">.</span><span class="nx">tar</span> <span class="nx">file</span><span class="p">,</span> <span class="nx">a</span> <span class="nx">signed</span> <span class="p">.</span><span class="nx">rmd160</span> <span class="nx">file</span> <span class="nx">must</span>
+<span class="err">#</span> <span class="nx">exist</span> <span class="k">in</span> <span class="nx">the</span> <span class="nx">same</span> <span class="nx">directory</span> <span class="nx">on</span> <span class="nx">the</span> <span class="nx">server</span> <span class="nx">and</span> <span class="nx">will</span> <span class="nx">be</span> <span class="nx">used</span> <span class="nx">to</span> <span class="nx">verify</span>
+<span class="err">#</span> <span class="nx">its</span> <span class="nx">integrity</span><span class="p">.</span>
+<span class="err">#</span>
+<span class="err">#</span> <span class="nx">For</span> <span class="nx">proper</span> <span class="nx">functionality</span> <span class="nx">of</span> <span class="nx">various</span> <span class="nx">resources</span> <span class="p">(</span><span class="nx">port</span> <span class="nx">groups</span><span class="p">,</span> <span class="nx">mirror</span>
+<span class="err">#</span> <span class="nx">sites</span><span class="p">,</span> <span class="nx">etc</span><span class="p">.),</span> <span class="nx">the</span> <span class="nx">primary</span> <span class="nx">MacPorts</span> <span class="nx">source</span> <span class="nx">must</span> <span class="nx">always</span> <span class="nx">be</span> <span class="nx">tagged</span>
+<span class="err">#</span> <span class="s2">&quot;</span><span class="cp">[</span><span class="nb">default</span><span class="cp">]</span><span class="s2">&quot;</span><span class="p">,</span> <span class="nx">even</span> <span class="k">if</span> <span class="nx">switched</span> <span class="nx">from</span> <span class="nx">the</span> <span class="k">default</span> <span class="s2">&quot;rsync://&quot;</span> <span class="nx">URL</span><span class="p">.</span>
+
+<span class="err">#</span> <span class="nx">rsync</span><span class="o">:</span><span class="c1">//rsync.macports.org/release/tarballs/ports.tar </span><span class="cp">[</span><span class="nb">default</span><span class="cp">]</span><span class="c1"></span>
+<span class="nx">rsync</span><span class="o">:</span><span class="c1">//mirrors.ustc.edu.cn/macports/ports </span><span class="cp">[</span><span class="nb">default</span><span class="cp">]</span><span class="c1"> </span>
+<span class="err">#</span> <span class="nx">rsync</span><span class="o">:</span><span class="c1">//mirror.bit.edu.cn/macports/release/ports/ </span><span class="cp">[</span><span class="nb">default</span><span class="cp">]</span><span class="c1"></span>
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/use-alternative-mirror-for-macports.html" rel="bookmark" title="Permalink to use alternative mirror for macports">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/gnu-make-how-to-get-2nd-or-3rd-prerequisite-file.html" rel="bookmark" title="Permalink to GNU make - how to get 2nd or 3rd prerequisite file">GNU make - how to get 2nd or 3rd prerequisite file</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-07-02T00:03:00+08:00"> Thu 02 July 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>在写<code>makefile</code>的时候，有时候依赖文件有多个，并且需要分别使用。例如，需要把两个vcf合并（两个vcf文件是对应不同染色体的，所以直接cat就可以，但是对于第二个vcf文件不需要开头的行首为‘#’的meta信息部分。</p>
+<div class="highlight"><pre><span class="n">target</span><span class="o">:</span> <span class="n">vcf1</span> <span class="n">vcf2</span>
+    <span class="o">(</span><span class="n">cat</span> <span class="n">vcf1</span><span class="o">;</span> <span class="n">cat</span> <span class="n">vcf2</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s1">&#39;#&#39;</span><span class="o">)</span> <span class="o">|</span> <span class="n">bgzip</span> <span class="o">&gt;</span> <span class="n">$</span><span class="err">@</span>
+</pre></div>
+
+
+<p>简单一点的写法是：</p>
+<div class="highlight"><pre>target： vcf1 vcf2
+    (cat $&lt;; cat $(word 2,$^) | grep -v &#39;#&#39;) | bgzip &gt; $@
+</pre></div>
+
+
+<p>多个依赖文件就有点不太方便：</p>
+<div class="highlight"><pre>target： vcf1 vcf2 vcf3
+    (cat $&lt;; cat $(word 2,$^) $(word 3,$^) | grep -v &#39;#&#39;) | bgzip &gt; $@
+</pre></div>
+
+
+<p>这时候可以用 <code>$(filter-out)</code>函数</p>
+<div class="highlight"><pre><span class="n">target</span><span class="o">:</span> <span class="n">vcf1</span> <span class="n">vcf2</span> <span class="n">vcf3</span>
+    <span class="o">(</span><span class="n">cat</span> <span class="n">$</span><span class="o">&lt;;</span> <span class="n">cat</span> <span class="n">$</span><span class="o">(</span><span class="n">filter</span><span class="o">-</span><span class="n">out</span> <span class="n">$</span><span class="o">&lt;,</span><span class="n">$</span><span class="o">^)</span> <span class="o">|</span> <span class="n">grep</span> <span class="o">-</span><span class="n">v</span> <span class="s1">&#39;#&#39;</span><span class="o">)</span> <span class="o">|</span> <span class="n">bgzip</span> <span class="o">&gt;</span> <span class="n">$</span><span class="err">@</span>
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/gnu-make-how-to-get-2nd-or-3rd-prerequisite-file.html" rel="bookmark" title="Permalink to GNU make - how to get 2nd or 3rd prerequisite file">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/clinical/exome-sequencing-for-newborn-screening.html" rel="bookmark" title="Permalink to exome sequencing for newborn screening">exome sequencing for newborn screening</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-06-25T23:22:00+08:00"> Thu 25 June 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>今天看到一个消息，美国一家叫做Baby Genes的公司准备推广运用全外显子组测序进行新生儿筛查。我觉得这是一个大趋势:</p>
+<ol>
+<li>外显子测序越来越便宜，现在外显子组测序成本大概四千人民币，再过几年假如价格再降一些，大家也更有钱一些，价格就越来越不是问题了。</li>
+<li>外显子组数据分析，包括方法和临床表型与基因型关联信息的数据集的进步，使得外显子组测序变得越来越容易，门槛越来越低</li>
+<li>外显子组测序能一次性解读绝大部分的遗传病（有一些遗传病还没有找到相关基因，还有一些遗传病的相关的区域不在外显子区域）
+拭目以待。</li>
+</ol>
+<p>另外，复旦儿童医院在2015年的中华询证儿科杂志（？）上发表了一系列的介绍外显子测序临床应用的文章，值得一读。</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/clinical/exome-sequencing-for-newborn-screening.html" rel="bookmark" title="Permalink to exome sequencing for newborn screening">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/gnu-make-multiple-targets-in-one-recipe-and-parallel-execution.html" rel="bookmark" title="Permalink to GNU Make - multiple targets in one recipe and parallel execution">GNU Make - multiple targets in one recipe and parallel execution</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-06-19T22:56:00+08:00"> Fri 19 June 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>Inspired by <code>http://stackoverflow.com/questions/19822435/multiple-targets-from-one-recipe-and-parallel-execution.</code></p>
+<p>很多时候，写<code>makefile</code>的时候，一条rule可以产生多个target，但是这样有一个问题，假如这些target不是pattern rules，make对于其中每一个target，都会运行一次recipe。</p>
+<p>例如：
+    bwa: hg19.fa.amb hg19.fa.ann hg19.fa.bwt hg19.fa.pac hg19.fa.sa</p>
+<div class="highlight"><pre>hg19.fa.amb hg19.fa.ann hg19.fa.bwt hg19.fa.pac hg19.fa.sa: hg19.fa
+    bwa index -a bwtsw $&lt;
+</pre></div>
+
+
+<p>当执行的时候，无论是否并行，<code>bwa index</code>命令都会被执行多次。</p>
+<div class="highlight"><pre>&gt; make -n bwa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+&gt; make -j 5 -n bwa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+bwa index -a bwtsw hg19.fa
+</pre></div>
+
+
+<p>解决的办法有两个。</p>
+<p>第一种是当多个target可以写成<code>pattern rule</code>的时候：</p>
+<div class="highlight"><pre><span class="n">bwa</span><span class="o">:</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">amb</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">ann</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">bwt</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">pac</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">sa</span>
+
+<span class="o">%.</span><span class="n">fa</span><span class="o">.</span><span class="na">amb</span> <span class="o">%.</span><span class="n">fa</span><span class="o">.</span><span class="na">ann</span> <span class="o">%.</span><span class="n">fa</span><span class="o">.</span><span class="na">bwt</span> <span class="o">%.</span><span class="n">fa</span><span class="o">.</span><span class="na">pac</span> <span class="o">%.</span><span class="n">fa</span><span class="o">.</span><span class="na">sa</span><span class="o">:</span> <span class="o">%.</span><span class="n">fa</span>
+      <span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="n">bwtsw</span> <span class="n">$</span><span class="o">&lt;</span>
+<span class="o">&gt;</span> <span class="n">make</span> <span class="o">-</span><span class="n">n</span> <span class="n">bwa</span>
+<span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="n">bwtsw</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span>
+<span class="o">&gt;</span> <span class="n">make</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">j</span> <span class="mi">4</span> <span class="n">bwa</span>
+<span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="n">bwtsw</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span>
+</pre></div>
+
+
+<p>第二种方法是上面提到的网页里面的方法，这个方法适应性更广，适合不能写成<code>pattern rule</code>的情况。</p>
+<div class="highlight"><pre><span class="n">bwa</span><span class="o">:</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">amb</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">ann</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">bwt</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">pac</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">sa</span>
+
+<span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">amb</span><span class="o">:</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span>
+    <span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="n">bwtsw</span> <span class="n">$</span><span class="o">&lt;</span> <span class="o">&amp;&amp;</span> <span class="n">touch</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">ann</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">bwt</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">pac</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">sa</span>
+
+<span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">ann</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">bwt</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">pac</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">sa</span><span class="o">:</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">amb</span>
+
+<span class="o">&gt;</span> <span class="n">make</span> <span class="o">-</span><span class="n">n</span> <span class="n">bwa</span>
+<span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="n">bwtsw</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span> <span class="o">&amp;&amp;</span> <span class="n">touch</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">ann</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">bwt</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">pac</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">sa</span>
+<span class="o">&gt;</span> <span class="n">make</span> <span class="o">-</span><span class="n">n</span> <span class="o">-</span><span class="n">j</span> <span class="n">bwa</span>
+<span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="n">bwtsw</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span> <span class="o">&amp;&amp;</span> <span class="n">touch</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">ann</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">bwt</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">pac</span> <span class="n">hg19</span><span class="o">.</span><span class="na">fa</span><span class="o">.</span><span class="na">sa</span>
+</pre></div>
+
+
+<p>解释一下，<code>hg19.fa.amb: hg19.fa</code>只把hg19.fa.amb当做target，但是命令<code>bwa index</code>生成了所有其余的target，包括hag9.fa.ann等文件，接下来命令<code>touch</code>重新改变了剩余几个文件的修改时间，使得它们比hg19.fa.amb更新，于是最后一个rule是已经满足了不需要被执行的。</p>
+<p>进一步改进一下，写成更通用的形式：</p>
+<div class="highlight"><pre>bwa_obj = hg19.fa.amb hg19.fa.ann hg19.fa.bwt hg19.fa.pac hg19.fa.sa
+
+bwa: $(bwa_obj)
+
+first_obj = $(firstword $(bwa_obj))
+rest_obj  = $(wordlist 2,$(words $(bwa_obj)),$(bwa_obj))
+
+$(first_obj): hg19.fa
+    bwa index -a bwtsw hg19.fa &amp;&amp; touch $(rest_obj)
+$(rest_obj): $(first_obj)
+
+&gt; make -n bwa
+bwa index -a bwtsw hg19.fa &amp;&amp; touch hg19.fa.ann hg19.fa.bwt hg19.fa.pac hg19.fa.sa
+&gt; make -n -j 5 bwa
+bwa index -a bwtsw hg19.fa &amp;&amp; touch hg19.fa.ann hg19.fa.bwt hg19.fa.pac hg19.fa.sa
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/gnu-make-multiple-targets-in-one-recipe-and-parallel-execution.html" rel="bookmark" title="Permalink to GNU Make - multiple targets in one recipe and parallel execution">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/why-slideshare-was-blocked.html" rel="bookmark" title="Permalink to Why slideshare was blocked ...?">Why slideshare was blocked ...?</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-05-09T22:19:00+08:00"> Sat 09 May 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>为什么slideshare也有被封的价值。。。？！</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/why-slideshare-was-blocked.html" rel="bookmark" title="Permalink to Why slideshare was blocked ...?">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/mac/case-insenstivity-on-mac-os-x.html" rel="bookmark" title="Permalink to case insenstivity on MAC OS X">case insenstivity on MAC OS X</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-05-07T09:28:00+08:00"> Thu 07 May 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>http://apple.stackexchange.com/questions/22297/is-bash-in-osx-case-insensitive</p>
+<div class="highlight"><pre>HFS+ (the Mac filesystem) is usually configured to be case insensitive but case preserving. This means that the file system will consider foo and FoO to be the same, but when you create a new file it will remember which letters where capitalized and which were not.
+
+When you format a disk with HFS+ you can chose whether the file system should case sensitive or not. If you chose to format with UFS (Unix FileSystem) it is always case sensitive, AFAIK.
+
+To check whether a disk is case sensitive, run:
+
+diskutil info &lt;device&gt;
+
+For example:
+
+diskutil info disk0s2
+
+Look for the Name: line. If it reads something like Mac OS Extended (Case-sensitive, Journaled) it means that it is case-sensitive. If it just reads Mac OS Extended (without the Case-sensitive) then it is only case preserving but not case sensitive.
+</pre></div>
+
+
+<p>On my computer:</p>
+<div class="highlight"><pre>&gt; diskutil info /dev/disk1 | grep Name
+Device / Media Name:      Macintosh HD
+Volume Name:              Macintosh HD
+Name (User Visible):      Mac OS Extended (Journaled)
+&gt;
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/mac/case-insenstivity-on-mac-os-x.html" rel="bookmark" title="Permalink to case insenstivity on MAC OS X">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/mac/if-you-dont-want-your-hostname-to-be-modifed-by-dhcp.html" rel="bookmark" title="Permalink to if you don't want your hostname to be modifed by DHCP">if you don't want your hostname to be modifed by DHCP</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-04-13T23:36:00+08:00"> Mon 13 April 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>It can be annoying to see my hostname being modifed each time I connect to a different WIFI. It is because the hostname was never set.</p>
+<div class="highlight"><pre>&gt; username@bogon[s002] ~&gt; scutil --get HostName 
+&gt; HostName: not set
+</pre></div>
+
+
+<p>So we just need to set the hostname:</p>
+<div class="highlight"><pre>&gt; username@bogon[s002] ~&gt; sudo scutil --set HostName &quot;new_hostname&quot;  
+&gt; Password:  
+&gt; username@bogon[s002] ~&gt; scutil --get HostName              
+&gt; new_hostname  
+&gt; username@bogon[s002] ~&gt;
+</pre></div> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/mac/if-you-dont-want-your-hostname-to-be-modifed-by-dhcp.html" rel="bookmark" title="Permalink to if you don't want your hostname to be modifed by DHCP">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/mac/disable-local-backup-of-timemachine.html" rel="bookmark" title="Permalink to disable local backup of timemachine">disable local backup of timemachine</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-04-11T11:55:00+08:00"> Sat 11 April 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <ul>
+<li>
+<p>Finder -&gt; goto "/Volumes" will see a backup disk</p>
+</li>
+<li>
+<p>"sudo tmutil disablelocal" will disable local cache of time machine</p>
+</li>
+<li>
+<p>"sudo tmutil enablelocal" will enable it again</p>
+</li>
+</ul> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/mac/disable-local-backup-of-timemachine.html" rel="bookmark" title="Permalink to disable local backup of timemachine">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/how-to-re-attach-a-lftp-process.html" rel="bookmark" title="Permalink to how to re-attach a lftp process">how to re-attach a lftp process</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-04-05T17:00:00+08:00"> Sun 05 April 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>lftp很好的一个功能是退出之后，正在运行的任务会自动提交到后台继续运行。</p>
+<p>但是有时候想重新连接这些任务，lftp提供了一个很好的命令attach。首先用ps查到要连接的任务的pid;
+然后打开lftp，运行“attach The_PID”。搞定。</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/how-to-re-attach-a-lftp-process.html" rel="bookmark" title="Permalink to how to re-attach a lftp process">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/run-job-with-at-on-mac.html" rel="bookmark" title="Permalink to run job with at on Mac">run job with at on Mac</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-04-01T11:16:00+08:00"> Wed 01 April 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>"at" on Mac is run by atrun, which is invoked by launchd. The problem is atrun is not running by default.</p>
+<div class="highlight"><pre>The atrun utility runs commands queued by at(1).  It is invoked periodically by launchd(8) as specified in the com.apple.atrun.plist property list.  By default the property list contains the Disabled key set to true, so atrun is never invoked.
+
+Execute the following command as root to enable atrun:  
+    launchctl load -w /System/Library/LaunchDaemons/com.apple.atrun.plist
+</pre></div>
+
+
+<p>After that, you can use "at" to submit job on Mac.</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/run-job-with-at-on-mac.html" rel="bookmark" title="Permalink to run job with at on Mac">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/install-docker-on-mac-os-x-1010.html" rel="bookmark" title="Permalink to install docker on Mac OS X 10.10">install docker on Mac OS X 10.10</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-03-25T13:46:00+08:00"> Wed 25 March 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <ol>
+<li>
+<p>install boot2docker </p>
+<p>Go to https://github.com/boot2docker/osx-installer/releases, and download boot2docker v1.5.0.</p>
+<p>The docker and boot2docker binaries are in /usr/local/bin which you can access from your terminal. </p>
+</li>
+<li>
+<p>launch boot2docker.app, which will open a terminal window. And run <code>docker run hello-world</code> to check if the installation succeeds or not.</p>
+</li>
+<li>
+<p>You can upgrade your existing Boot2Docker VM without data loss by running: </p>
+<blockquote>
+<p>boot2docker upgrade</p>
+</blockquote>
+</li>
+<li>
+<p>Create a new Boot2Docker VM.</p>
+<blockquote>
+<p>boot2docker init</p>
+</blockquote>
+<p>This will create a new virtual machine on "~/VirtualBox VMs/boot2docker-vm". You only need to run this command once.</p>
+</li>
+<li>
+<p>start boot2docker VM.</p>
+<p>boot2docker start</p>
+</li>
+<li>
+<p>display the environment variables for docker</p>
+<blockquote>
+<p>boot2docker shellinit
+Writing /Users/username/.boot2docker/certs/boot2docker-vm/ca.pem  <br />
+Writing /Users/username/.boot2docker/certs/boot2docker-vm/cert.pem  <br />
+Writing /Users/username/.boot2docker/certs/boot2docker-vm/key.pem  <br />
+export DOCKER_CERT_PATH=/Users/username/.boot2docker/certs/boot2docker-vm  <br />
+export DOCKER_TLS_VERIFY=1  <br />
+export DOCKER_HOST=tcp://192.168.59.103:2376    </p>
+</blockquote>
+</li>
+<li>
+<p>if <code>env | grep docker</code> doesn't show 3 settings, you should set variables for docker.</p>
+<blockquote>
+<p>$(boot2docker shellinit)</p>
+</blockquote>
+</li>
+<li>
+<p>start to work with docker.</p>
+</li>
+<li>
+<p>close the boot2docker image.</p>
+<blockquote>
+<p>boot2docker stop</p>
+</blockquote>
+</li>
+</ol> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/install-docker-on-mac-os-x-1010.html" rel="bookmark" title="Permalink to install docker on Mac OS X 10.10">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/utils/export-mail-in-ost-file-to-mailapp-on-mac.html" rel="bookmark" title="Permalink to export mail in .ost file to mail.app on Mac">export mail in .ost file to mail.app on Mac</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-03-24T14:10:00+08:00"> Tue 24 March 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <ol>
+<li>
+<p>export mail in .ost file to mbox file (the file may not end with .mbox).  </p>
+<p>readpst -j 3 outlook.ost </p>
+</li>
+<li>
+<p>mail.app --&gt; File --&gt; import mailboxes, and select the folder generated in step 1.</p>
+</li>
+</ol>
+<p>That's all. Your emails in the ost file will be imported into a directory under "on my Mac".</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/utils/export-mail-in-ost-file-to-mailapp-on-mac.html" rel="bookmark" title="Permalink to export mail in .ost file to mail.app on Mac">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/bioinf/common-mistakes-in-bioinformatics.html" rel="bookmark" title="Permalink to common mistakes in bioinformatics">common mistakes in bioinformatics</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-03-14T16:03:00+08:00"> Sat 14 March 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>This nice thread(https://www.biostars.org/p/7126/) summarized a lot of common mistakes people (including me, of course) might make in daily work.</p>
+<div class="highlight"><pre><span class="o">*</span> <span class="nt">forget</span> <span class="nt">to</span> <span class="nt">check</span> <span class="nt">both</span> <span class="nt">strands</span>
+<span class="o">*</span> <span class="nt">generate</span> <span class="nt">random</span> <span class="nt">genomic</span> <span class="nt">sites</span> <span class="nt">without</span> <span class="nt">avoiding</span> <span class="nt">masked</span> <span class="o">(</span><span class="nt">NNN</span><span class="o">)</span> <span class="nt">gaps</span>
+<span class="o">*</span> <span class="nt">confuse</span> <span class="nt">genome</span> <span class="nt">freezes</span> <span class="nt">and</span> <span class="nt">even</span> <span class="nt">species</span>
+<span class="o">*</span> <span class="nt">a</span> <span class="nt">lot</span> <span class="nt">of</span> <span class="nt">off-by-one</span> <span class="nt">errors</span> <span class="nt">due</span> <span class="nt">to</span> <span class="nt">switching</span> <span class="nt">between</span> <span class="nt">formats</span><span class="o">:</span> <span class="nt">Bed</span> <span class="nt">is</span> <span class="nt">0</span> <span class="nt">based</span><span class="o">;</span>  <span class="nt">GFF</span><span class="o">/</span><span class="nt">GTF</span> <span class="nt">are</span> <span class="nt">1-based</span>  
+<span class="o">*</span> <span class="nt">Trusting</span> <span class="nt">that</span> <span class="nt">a</span> <span class="nt">downloaded</span> <span class="nt">file</span> <span class="nt">is</span> <span class="nt">actually</span> <span class="nt">fully</span> <span class="nt">downloaded</span>
+<span class="o">*</span> <span class="nt">Trusting</span> <span class="nt">that</span> <span class="nt">an</span> <span class="nt">aligner</span> <span class="nt">will</span> <span class="nt">accept</span> <span class="nt">a</span> <span class="nt">list</span> <span class="nt">of</span> <span class="nt">query</span> <span class="nt">files</span> <span class="nt">instead</span> <span class="nt">of</span> <span class="nt">just</span> <span class="nt">taking</span> <span class="nt">the</span> <span class="nt">first</span> <span class="nt">and</span> <span class="nt">ignoring</span> <span class="nt">the</span> <span class="nt">rest</span> <span class="o">(</span><span class="nt">quiz</span><span class="o">:</span> <span class="nt">which</span> <span class="nt">ones</span> <span class="nt">am</span> <span class="nt">i</span> <span class="nt">talking</span> <span class="nt">about</span><span class="o">?)</span>
+<span class="o">*</span> <span class="nt">Assuming</span> <span class="nt">that</span> <span class="nt">the</span> <span class="nt">quality</span> <span class="nt">scores</span> <span class="nt">in</span> <span class="nt">a</span> <span class="nt">FASTQ</span> <span class="nt">file</span> <span class="nt">are</span> <span class="nt">from</span> <span class="nt">a</span> <span class="nt">great</span> <span class="nt">Sanger-encoded</span> <span class="nt">run</span> <span class="nt">instead</span> <span class="nt">of</span> <span class="nt">a</span> <span class="nt">very</span> <span class="nt">poor</span> <span class="nt">Illumina-1</span><span class="nc">.3</span> <span class="nt">run</span>
+<span class="o">*</span> <span class="nt">Assuming</span> <span class="nt">chr1</span> <span class="nt">is</span> <span class="nt">followed</span> <span class="nt">by</span> <span class="nt">chr2</span> <span class="nt">not</span> <span class="nt">chr10</span>
+<span class="o">*</span> <span class="nt">off-by-one</span> <span class="nt">errors</span>
+<span class="o">*</span> <span class="nt">regex</span> <span class="nt">errors</span>
+<span class="o">*</span> <span class="nt">parsing</span> <span class="nt">a</span> <span class="nt">complex</span> <span class="nt">alignment</span><span class="o">/</span><span class="nt">file</span> <span class="nt">format</span> <span class="nt">incorrectly</span> <span class="o">(</span><span class="nt">e</span><span class="nc">.g</span><span class="o">.</span> <span class="nt">BLAST</span> <span class="nt">or</span> <span class="nt">GenBank</span><span class="o">,</span> <span class="nt">probably</span> <span class="nt">the</span> <span class="nt">original</span> <span class="nt">rationale</span> <span class="nt">for</span> <span class="nt">developing</span> <span class="nt">BioPerl</span><span class="o">)</span>
+<span class="o">*</span> <span class="nt">failing</span> <span class="nt">to</span> <span class="nt">account</span> <span class="nt">for</span> <span class="nt">strand</span>
+<span class="o">*</span> <span class="nt">failing</span> <span class="nt">to</span> <span class="nt">revcomp</span> <span class="nt">sequences</span>
+<span class="o">*</span> <span class="nt">failing</span> <span class="nt">to</span> <span class="nt">account</span> <span class="nt">for</span> <span class="nt">the</span> <span class="nt">last</span> <span class="nt">element</span> <span class="nt">in</span> <span class="nt">a</span> <span class="nt">file</span> <span class="o">(</span><span class="nt">because</span> <span class="nt">of</span> <span class="nt">a</span> <span class="nt">improper</span> <span class="nt">loop</span> <span class="nt">condition</span> <span class="nt">or</span> <span class="nt">no</span> <span class="nt">EOL</span> <span class="nt">character</span> <span class="nt">on</span> <span class="nt">last</span> <span class="nt">line</span><span class="o">)</span>
+<span class="o">*</span> <span class="nt">failing</span> <span class="nt">to</span> <span class="nt">account</span> <span class="nt">for</span> <span class="nt">OS</span> <span class="nt">dependent</span> <span class="nt">line</span> <span class="nt">breaks</span>
+<span class="o">*</span> <span class="nt">using</span> <span class="nt">the</span> <span class="nt">wrong</span> <span class="nt">assembly</span><span class="o">/</span><span class="nt">annotation</span><span class="o">/</span><span class="nt">release</span>
+<span class="o">*</span> <span class="nt">using</span> <span class="nt">the</span> <span class="nt">wrong</span> <span class="nt">genome</span> <span class="nt">coordinate</span> <span class="nt">system</span>
+<span class="o">*</span> <span class="nt">using</span> <span class="nt">the</span> <span class="nt">wrong</span> <span class="nt">file</span> <span class="o">(</span><span class="nt">multiple</span> <span class="nt">versions</span><span class="o">,</span> <span class="nt">version</span> <span class="nt">skew</span><span class="o">)</span>
+<span class="o">*</span> <span class="nt">failing</span> <span class="nt">to</span> <span class="nt">account</span> <span class="nt">for</span> <span class="nt">nested</span><span class="o">/</span><span class="nt">intercalated</span> <span class="nt">annotation</span> <span class="nt">features</span> <span class="o">(</span><span class="nt">e</span><span class="nc">.g</span><span class="o">.</span> <span class="nt">genes</span><span class="o">)</span>
+<span class="o">*</span> <span class="nt">assuming</span> <span class="nt">all</span> <span class="nt">jobs</span> <span class="nt">have</span> <span class="nt">completed</span> <span class="nt">on</span> <span class="nt">a</span> <span class="nt">cluster</span>
+<span class="o">*</span> <span class="nt">deleting</span> <span class="nt">files</span>
+<span class="o">*</span> <span class="nt">not</span> <span class="nt">randomizing</span> <span class="nt">your</span> <span class="nt">data</span> <span class="nt">properly</span>
+<span class="o">*</span> <span class="nt">improper</span> <span class="nt">use</span> <span class="nt">of</span> <span class="nt">statistical</span> <span class="nt">tests</span>
+<span class="o">*</span> <span class="nt">not</span> <span class="nt">documenting</span> <span class="nt">methods</span> <span class="nt">fully</span> <span class="o">(</span><span class="nt">to</span> <span class="nt">check</span> <span class="nt">and</span> <span class="nt">correct</span> <span class="nt">all</span> <span class="nt">of</span> <span class="nt">the</span> <span class="nt">above</span><span class="o">)</span>
+<span class="o">*</span> <span class="nt">Run</span> <span class="nt">a</span> <span class="nt">batch</span> <span class="nt">BLAST</span> <span class="nt">job</span> <span class="nt">and</span> <span class="nt">forgetting</span> <span class="nt">to</span> <span class="nt">put</span> <span class="nt">the</span> <span class="s2">&quot;-o something.out&quot;</span> <span class="nt">option</span><span class="o">.</span> <span class="nt">Then</span> <span class="nt">switching</span> <span class="nt">off</span> <span class="nt">the</span> <span class="nt">monitor</span> <span class="nt">and</span> <span class="nt">coming</span> <span class="nt">the</span> <span class="nt">next</span> <span class="nt">day</span> <span class="nt">to</span> <span class="nt">see</span> <span class="nt">a</span> <span class="nt">bunch</span> <span class="nt">of</span> <span class="nt">characters</span> <span class="nt">in</span> <span class="nt">my</span> <span class="nt">terminal</span>
+<span class="o">*</span> <span class="s2">&quot;tar -zxvf&quot;</span> <span class="nt">without</span> <span class="nt">checking</span> <span class="nt">the</span> <span class="nt">tar</span> <span class="nt">file</span> <span class="nt">before</span><span class="o">,</span> <span class="nt">I</span> <span class="nt">have</span> <span class="nt">decompressed</span> <span class="nt">thousands</span> <span class="nt">of</span> <span class="nt">files</span> <span class="nt">in</span> <span class="nt">my</span> <span class="nt">current</span> <span class="nt">directory</span> <span class="nt">assuming</span> <span class="nt">they</span> <span class="nt">came</span> <span class="nt">in</span> <span class="nt">their</span> <span class="nt">own</span> <span class="nt">folder</span><span class="o">.</span>
+</pre></div>
+
+
+<p>Another very important one is: gene name might be hacked by MS Excel. </p>
+<p>There are 11 human gene names in March: MARCH1 to MARCH11, and one in December: DEC1. And excel will treat them as date!</p>
+<p>So make sure to ask excel to open data as text when working with gene names.</p>
+<p>Please refer to this paper for more info.</p>
+<p>1.Zeeberg, B. R. et al. Mistaken Identifiers: Gene name errors can be introduced inadvertently when using Excel in bioinformatics. BMC Bioinformatics 5, 80 (2004).  http://www.biomedcentral.com/1471-2105/5/80</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/bioinf/common-mistakes-in-bioinformatics.html" rel="bookmark" title="Permalink to common mistakes in bioinformatics">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/general/finally-i-moved-to-mac.html" rel="bookmark" title="Permalink to finally I moved to Mac">finally I moved to Mac</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2015-01-20T16:09:27+08:00"> Tue 20 January 2015 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>2014年年底，用了七年多的在最后一年从Windows转向Linux的T61因为nvidia显卡门报废，决定换成Mac了。</p>
+<p>理由很简单，我用电脑主要用来办公和编程。Windows因为有MS Office，办公不错，但是编程(包括数据处理)方面太差；Linux在编程方面很好，但是办公方面就是渣:只有Mac可以兼顾二者。</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/general/finally-i-moved-to-mac.html" rel="bookmark" title="Permalink to finally I moved to Mac">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/create-shortcurt-key-for-ksnapshot.html" rel="bookmark" title="Permalink to create shortcurt key for ksnapshot">create shortcurt key for ksnapshot</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-08-14T23:27:51+08:00"> Thu 14 August 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>ksnapshot is a powerful tool to take snapshot. However, each time you have to start ksnapshot from the application menu, which is not as efficient as it should be.</p>
+<p>Here is how to create shortcut key for ksnapshot.</p>
+<ul>
+<li>
+<p>go to "System Settings" --&gt; "Shortcuts and Gestures" --&gt; "Custom Shortcuts"
+   --&gt; "Preset Actions" --&gt; "PrintScreen"</p>
+<p>set "Meta + S" (Win + S), which is the same as screen clipping shortcut for onenote on Windows, for Trigger;
+   <img alt="set shotcut key" src="/images/ksnapshot1.png" /></p>
+<p>and set "ksnapshot --region" as "Command/URL" for Action. Here I prefer the default behavior to take screenshot of rectangel area. You can just use "ksnapshot" if you like.
+   <img alt="set command" src="/images/ksnapshot2.png" /></p>
+</li>
+</ul>
+<p>That's all. Now you can just press "Win + S" and select a rectangle region to take a screenshot.</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/create-shortcurt-key-for-ksnapshot.html" rel="bookmark" title="Permalink to create shortcurt key for ksnapshot">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/install-chinese-input-method-on-t61-running-debian.html" rel="bookmark" title="Permalink to install Chinese input method on T61 running Debian">install Chinese input method on T61 running Debian</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-08-13T22:39:27+08:00"> Wed 13 August 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>Now it is much eaiser to install Chinese input method than before.</p>
+<ol>
+<li>
+<p>apt-get install task-chinese-s-kde-desktop fcitx-pinyin</p>
+</li>
+<li>
+<p>Go to "Settings" --&gt; "System Settings" --&gt; "Local" --&gt; "Input Method" --&gt; "Input Method"
+   --&gt; add "Pinyin" from "Available Input Method" to "Current Input Method". </p>
+</li>
+</ol>
+<p>Uncheck "Only Show Current Language" if "Pinyin" is not shown in "Available Input Method".</p>
+<p>That's all. You will be able to use "Ctrl + Space" to use Chinese input method.</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/install-chinese-input-method-on-t61-running-debian.html" rel="bookmark" title="Permalink to install Chinese input method on T61 running Debian">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/bioinf/convert-bam-file-to-fastq.html" rel="bookmark" title="Permalink to convert bam file to fastq">convert bam file to fastq</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-08-06T20:16:55+08:00"> Wed 06 August 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>After having struggled for a while to find a convenient tool to extract .fastq file to .bam file, I decided to write one.</p>
+<p>The problems with current tools are:</p>
+<ul>
+<li>Couldn't deal with reads having multiple match in .bam file.</li>
+<li>Some tools require the .bam to be sorted by name first.</li>
+</ul>
+<p>In my program (https://github.com/XiaoJianfeng/ibl/blob/master/util/bam2fq.sh), Sqlite3 is used to do the heavy job. Below is the details of how to do it:</p>
+<ol>
+<li>
+<p>"samtools view" read .bam file and output to stdout.</p>
+</li>
+<li>
+<p>Sqlite3 create a table fastq with 4 columns (qname, flag, seq, qual), and import data from stdout to the table with sqlite3 command ".import".
+CREATE TABLE fastq (qname, flag, seq, qual);</p>
+<p>select date()||" "||time()||" import begin";<br />
+.separator "\t"<br />
+.import temp.$$ fastq 
+CREATE INDEX qname_idx on fastq (qname);   </p>
+</li>
+<li>
+<p>Sqlite3 creat two tables, "left" and "right", and get qname of read_1 and read_2 to these two tables separately. whether a read is the first read or second read is identified by checking the flag. 0x40 is set for first read, while 0x80 is set for second read.</p>
+<p>CREATE TABLE left as select qname from fastq where flag &amp; 64 == 64;<br />
+CREATE TABLE right as select qname from fastq where flag &amp; 128 == 128;  </p>
+</li>
+<li>
+<p>select reads from table "fastq" that are the first in the pair, and has corresponding mate pair in table "right"; and select reads from table "fastq" that are the second in the pair, and has corresponding mate pair in table "left". "\n" is used as separator between columns, and the output is redirected to .fastq file.</p>
+<p>.output ${left_file}<br />
+.separator "\n"<br />
+select distinct "@"||right.qname||"/1", seq, '+', qual from right join fastq on fastq.qname == right.qname where flag&amp;64 == 64 order by right.qname;  </p>
+<p>.output ${right_file}<br />
+.separator "\n"<br />
+select distinct "@"||left.qname||"/2", seq, '+', qual from left join fastq on fastq.qname == left.qname where flag&amp;128 == 128 order by left.qname;  </p>
+</li>
+<li>
+<p>job done.</p>
+</li>
+</ol>
+<p>With my program, the .bam file doesn't need to be sorted beforehand.</p>
+<p>It has one limition: the output .fastq files are not compressed. I will remove this limition later when I have time. But please rest assured it works perfectly well at the moment.</p>
+<h2>[update 2014-08-11 22:33:09]:</h2>
+<h3>fixed a bug regarding identification of first and second read in a pair by flags</h3>
+<p>the primary alignment should have flag &amp; 0x900 == 0, first read has flag &amp; 0x40 == 0x40, and second read has flag &amp; 0x80 == 0x80</p>
+<p>so primary alignment of first read should be flag &amp; 0x940 (ie. 2368) == 0x40, and for second read flag &amp; 0x980 (ie. 2432) == 0x80</p>
+<p>CREATE TABLE left as select qname from fastq where flag &amp; 2368 == 64; <br />
+   CREATE TABLE right as select qname from fastq where flag &amp; 2432 == 128;       </p>
+<h3>bam2fq.sh is updated to support gziped output.</h3>
+<p>details of the implementation:</p>
+<ul>
+<li>
+<p>first creat named pipe</p>
+<p>mkfifo tmp_output</p>
+</li>
+<li>
+<p>use gzip to compress the content read from named pipe, and put the process into background</p>
+<p>gzip -c &lt; tmp_output &gt; output.fq.gz &amp;</p>
+</li>
+<li>
+<p>in sqlite3, output to to named pipe</p>
+<p>.output tmp_output
+[SELECT ...]</p>
+</li>
+<li>
+<p>it is possible to set .output to a pipe from within sqlite3,</p>
+<p>.output '| gzip -c &gt; output.fq.gz'
+[SELECT ...]</p>
+</li>
+</ul>
+<h2>[2014-08-12 21:14:52]</h2>
+<h3>the task is more complicated than I have expected. here is another bug</h3>
+<p>The sequences in .bam file for two reads of a pair are on the same strand. However, for 
+paired-end reads, one read is on forward stand, and the other one is on reverse strand.
+So one of them should be mapped to another strand (reverse complement).</p>
+<p>In bam2fq.sh, the first reads are extracted from .bam unchanged. The second reads are all converted to reverse complement with command "tr 'ATGC' 'TACG' | rev".</p>
+<p><a href="https://github.com/XiaoJianfeng/ibl/blob/master/util/bam2fq.sh">bam2fq.sh</a> is updated.</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/bioinf/convert-bam-file-to-fastq.html" rel="bookmark" title="Permalink to convert bam file to fastq">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/code/create-blog-on-github-pages-with-pelican.html" rel="bookmark" title="Permalink to create blog on github pages with pelican">create blog on github pages with pelican</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-08-05T23:40:15+08:00"> Tue 05 August 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <ol>
+<li>
+<p>install pelican, ghp-import, and of course git</p>
+</li>
+<li>
+<p>create a github repo: xiaojianfeng.github.io, and choose to not initalize with a README.md.</p>
+</li>
+<li>
+<p>create a directory "technotes", cd into this directory and run "pelican-quickstart"</p>
+<p>$ mkdir technotes <br />
+$ cd technotes <br />
+$ pelican-quickstart <br />
+Welcome to pelican-quickstart v3.5.0.  </p>
+<p>This script will help you create a new Pelican-based website.  </p>
+<p>Please answer the following questions so this script can generate the files<br />
+needed by Pelican.  </p>
+<blockquote>
+<p>Where do you want to create your new web site? [.] <br />
+What will be the title of this web site? Tech Notes<br />
+Who will be the author of this web site? Xiao Jianfeng<br />
+What will be the default language of this web site? [en] <br />
+Do you want to specify a URL prefix? e.g., http://example.com   (Y/n)   <br />
+What is your URL prefix? (see above example; no trailing slash) http://xiaojianfeng.github.io<br />
+Do you want to enable article pagination? (Y/n) <br />
+How many articles per page do you want? [10] 20<br />
+Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) <br />
+Do you want an auto-reload &amp; simpleHTTP script to assist with theme and site development? (Y/n) <br />
+Do you want to upload your website using FTP? (y/N) <br />
+Do you want to upload your website using SSH? (y/N) <br />
+Do you want to upload your website using Dropbox? (y/N) <br />
+Do you want to upload your website using S3? (y/N) <br />
+Do you want to upload your website using Rackspace Cloud Files? (y/N) <br />
+Do you want to upload your website using GitHub Pages? (y/N) y<br />
+Is this your personal page (username.github.io)? (y/N) y<br />
+Done. Your new project is available at /path/to/technotes  </p>
+</blockquote>
+</li>
+<li>
+<p>initalize git repo in directory on local harddisk</p>
+<p>$ cd technotes<br />
+$ git init<br />
+$ git remote add origin https://github.com:XiaoJianfeng/xiaojianfeng.github.io.git     </p>
+</li>
+<li>
+<p>start to write blog with markdown, and then run "make github"</p>
+<p>$ vim content/first_post.md  # and write something <br />
+$ make github   </p>
+</li>
+<li>
+<p>add the following to ~/.gitconfig, so you will not to be asked to input password everytime, and you can use multiple accounts with multiple repositories.</p>
+<p>[credential]<br />
+    helper = osxkeychain<br />
+    useHttpPath = true  </p>
+</li>
+</ol> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/code/create-blog-on-github-pages-with-pelican.html" rel="bookmark" title="Permalink to create blog on github pages with pelican">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                        <li><article class="hentry">
+                                <header> <h2 class="entry-title"><a href="http://xiaojianfeng.github.io/general/first-post.html" rel="bookmark" title="Permalink to first post">first post</a></h2> </header>
+                                <footer class="post-info">
+                                    <abbr class="published" title="2014-08-05T22:23:19+08:00"> Tue 05 August 2014 </abbr>
+                                    <address class="vcard author">By 
+                                    <a class="url fn" href="http://xiaojianfeng.github.io/author/xiao-jianfeng.html"> Xiao Jianfeng</a>
+                                    </address>
+                                </footer><!-- /.post-info -->
+                                <div class="entry-content"> <p>Aftering having tried several blog platforms, finally I switched to github.</p>
+<p>This blog will be the host of my tech notes.</p> </div><!-- /.entry-content -->
+
+                                <div class="medium primary btn"><a href="http://xiaojianfeng.github.io/general/first-post.html" rel="bookmark" title="Permalink to first post">Read more <i class="icon-arrow-right"></i></a></div>
+
+
+
+                                <div class="row tag-row">
+                                </div>
+
+
+
+                        </article></li>
+                </ol><!-- /#posts-list -->
+
+        </div><!-- /.eleven.columns -->
+        
+<div class="three columns">
+
+<h4>Pages</h4>
+
+ <ul>
+  </ul>
+
+<h4>Categories</h4>
+<ul>
+		<li><a href="http://xiaojianfeng.github.io/bioinf/index.html">bioinf</a></li>
+		<li><a href="http://xiaojianfeng.github.io/clinical/index.html">clinical</a></li>
+		<li><a href="http://xiaojianfeng.github.io/code/index.html">code</a></li>
+		<li><a href="http://xiaojianfeng.github.io/general/index.html">general</a></li>
+		<li><a href="http://xiaojianfeng.github.io/mac/index.html">mac</a></li>
+		<li><a href="http://xiaojianfeng.github.io/utils/index.html">utils</a></li>
+</ul>
+
+
+<h4>Tags</h4>
+	<ul>
+	    <li class="tag-4"><a href="http://xiaojianfeng.github.io/tag/mutation.html">mutation</a></li>
+	    <li class="tag-4"><a href="http://xiaojianfeng.github.io/tag/brew.html">brew</a></li>
+	    <li class="tag-1"><a href="http://xiaojianfeng.github.io/tag/mac.html">mac</a></li>
+	    <li class="tag-4"><a href="http://xiaojianfeng.github.io/tag/code.html">code</a></li>
+	    <li class="tag-4"><a href="http://xiaojianfeng.github.io/tag/shell.html">shell</a></li>
+	    <li class="tag-4"><a href="http://xiaojianfeng.github.io/tag/linux.html">linux</a></li>
+</ul>
+
+
+<nav class="widget">
+  <h4>Social</h4>
+  <ul>
+    <li><a href="https://github.com/xiaojianfeng">github</a></li>
+    <li><a href="#">Another social link</a></li>
+  </ul>
+</nav>
+
+</div> </div><!-- /.row -->
+
+<p class="paginator">
+    Page 1 / 1
+</p>
+</section><!-- /#content -->
+
+       </div><!-- /.row -->
+    </div><!-- /.container -->
+
+
+       <div class="container.nopad bg">
+
+    
+        <footer id="credits" class="row">
+          <div class="seven columns left-center">
+
+                   <address id="about" class="vcard body">
+                    Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
+                    which takes great advantage of <a href="http://python.org">Python</a>.
+                    <br />
+                    Based on the <a target="_blank" href="http://gumbyframework.com">Gumby Framework</a>
+                    </address>
+          </div>
+
+
+          <div class="seven columns">
+            <div class="row">
+              <ul class="socbtns">
+
+
+
+
+
+              </ul>
+            </div>
+          </div>
+        </footer>
+
+    </div>
+
+
+  <script src="http://xiaojianfeng.github.io/theme/js/libs/jquery-1.9.1.min.js"></script>
+  <script src="http://xiaojianfeng.github.io/theme/js/libs/gumby.min.js"></script>
+  <script src="http://xiaojianfeng.github.io/theme/js/plugins.js"></script>
+</body>
+</html>
