@@ -105,6 +105,6 @@
     $ git push origin gh-pages
     ```
 
-    然后就可以在https://xiaojianfeng.github.io/ngsgarden/看到ngsgarden的webpage了。
+    然后就可以在[https://xiaojianfeng.github.io/ngsgarden/](https://xiaojianfeng.github.io/ngsgarden/)看到ngsgarden的webpage了。
 
     以后每次在`master`分支的文件夹进行编辑，并运行`gitbook build`，将生成的`_book/`复制到`gh-pages`所在的文件夹，然后提交到远程。

@@ -69,7 +69,11 @@ source ~/.zshrc
 ## 安装homebrew的Cask扩展
 
 ```brew tap caskroom/cask```
-	
+
+`brew search` 列出所有可用的软件。
+
+```brew cask install xmind virtualbox virtualbox-extension-pack skitch java igv 4peaks go2shell xquartz sourcetree rstudio google-chrome firefox iterm2 genomebrowse figtree manuve appclener calibre```
+
 ## install iterm2
 
 安装Cask扩增之后, 才能用brew安装iterm2
@@ -101,6 +105,40 @@ source ~/.zshrc
 	    export PS1="(tmux)${PS1}"
 	fi
 	```
+
+## 安装conda
+
+1. install anaconda/miniconda
+
+    清华提供了[anaconda的镜像](https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/)，可以选择下载anaconda或者miniconda安装包：
+
+    ```
+    # $ wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive/Anaconda2-4.2.0-MacOSX-x86_64.pkg
+    $ wget https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda2-4.2.11-MacOSX-x86_64.sh
+
+    source Miniconda2-*.sh
+    ```
+
+2. 配置
+
+    使用清华镜像：
+    ```
+    conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
+    conda config --set show_channel_urls yes
+    ```
+
+    使用其它channel,编辑~/.condarc文件,加入其它channel（bioconda，r），内容如下：
+
+    ``` 
+    $ cat ~/.condarc
+    channels:
+      - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+      - bioconda
+      - r
+      - defaults
+    show_channel_urls: true
+    $ 
+    ```
 
 ## install perl environment on Mac
 
