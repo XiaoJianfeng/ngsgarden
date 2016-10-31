@@ -58,16 +58,16 @@
 
 ## gitbook 建立新项目
 
-    ```
-    $ mkdir ngsgarden
-    $ cd ngsgarden
-    $ gitbook init
-    $ vim .gitignore # 将"_book/", .DS_Store, book.pdf, node_modules/ 和其他一些不必要的文件假如忽略列表
-    $ # 然后进行编辑并commit到本地。
-    $ gitbook build   # 首先删除_book/下的所有文件，然后重新将产生的book的webpage存放与该目录下。
-    $ git add .
-    $ git commit -m "initial commit" 
-    ```
+```
+$ mkdir ngsgarden
+$ cd ngsgarden
+$ gitbook init
+$ vim .gitignore # 将"_book/", .DS_Store, book.pdf, node_modules/ 和其他一些不必要的文件假如忽略列表
+$ # 然后进行编辑并commit到本地。
+$ gitbook build   # 首先删除_book/下的所有文件，然后重新将产生的book的webpage存放与该目录下。
+$ git add .
+$ git commit -m "initial commit" 
+```
 
 
 

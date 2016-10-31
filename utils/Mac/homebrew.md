@@ -106,6 +106,18 @@ source ~/.zshrc
 	fi
 	```
 
+## brew使用本地下载的安装文件
+
+   `brew install`在下载文件的时候，经常很慢，比`wget`慢很多。可以先用`wget`下载， 然后将所下载的文件放到brew的缓存文件夹里面（文件名要改成brew所用的格式），再用`brew`安装：
+
+    ```
+    $ wget http://nchc.dl.sourceforge.net/project/snpeff/snpEff_v4_2_core.zip```
+    $ brew --cache -s snpeff
+    $ /Users/xiaojf/Library/Caches/Homebrew/snpeff-4.2.zip
+    $ mv snpEff_v4_2_core.zip $(brew --cache -s snpeff)
+    $ brew install snpeff
+    ```
+
 ## 安装conda
 
 1. install anaconda/miniconda
