@@ -68,17 +68,72 @@ source ~/.zshrc
 
 ## 安装homebrew的Cask扩展
 
+
 ```brew tap caskroom/cask```
 
 `brew search` 列出所有可用的软件。
 
 ```brew cask install xmind virtualbox virtualbox-extension-pack skitch java igv 4peaks go2shell xquartz sourcetree rstudio google-chrome firefox iterm2 genomebrowse figtree manuve appclener calibre```
 
+## 使用homebrew/science和homebrew/python
+
+```
+brew tap homebrew/science
+brew tap homebrew/python
+```
+
+## 自动更新homebrew的Cask扩展
+
+`homebrew cask`缺少一个很基本的功能，不能自动更新，必须要手动去检查一个一个的软件。所以有人写了脚本来实现：
+
+```
+#!/usr/bin/env bash
+
+# http://apple.stackexchange.com/questions/190072/is-there-any-way-to-upgrade-brew-cask/215224#215224
+
+(set -x; brew update;)
+
+(set -x; brew cleanup;)
+(set -x; brew cask cleanup;)
+
+red=`tput setaf 1`
+green=`tput setaf 2`
+reset=`tput sgr0`
+
+casks=( $(brew cask list) )
+
+for cask in ${casks[@]}
+do
+    version=$(brew cask info $cask | sed -n "s/$cask:\ \(.*\)/\1/p")
+    installed=$(find "/usr/local/Caskroom/$cask" -type d -maxdepth 1 -maxdepth 1 -name "$version")
+
+    if [[ -z $installed ]]; then
+        echo "${red}${cask}${reset} requires ${red}update${reset}."
+        (set -x; brew cask uninstall $cask --force;)
+        (set -x; brew cask install $cask --force;)
+    else
+        echo "${red}${cask}${reset} is ${green}up-to-date${reset}."
+    fi
+done
+
+```
+
+然后，每次运行命令即可更新所有软件：
+
+```
+$ wget https://gist.githubusercontent.com/atais/9c72e469b1cbec35c7c430ce03de2a6b/raw/36808a0544628398f26b48f7a3c7b309872ca2c6/cask_upgrade.sh
+$ chmod +x cask_upgrade.sh
+$ ./cask_upgrade.sh
+```
+
+
 ## install iterm2
 
 安装Cask扩增之后, 才能用brew安装iterm2
 
 ```$ brew cask install iterm2```
+
+
 
 ## 安装oh-my-zsh
 
