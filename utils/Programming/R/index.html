@@ -495,6 +495,19 @@
             
         </li>
     
+        <li class="chapter " data-level="3.1.3" data-path="../../../bioinf/tools/igv.html">
+            
+                <a href="../../../bioinf/tools/igv.html">
+            
+                    
+                    igv
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -759,7 +772,56 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="to-be-updated">to be updated</h3>
+                                <h2 id="renviron-and-rprofile">.Renviron and .Rprofile</h2>
+<ul>
+<li><p>.Renviron </p>
+<p>&#x521A;&#x542F;&#x52A8;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x4F1A;&#x78B0;&#x5230;&#x4E0B;&#x9762;&#x95EE;&#x9898;&#xFF1A;</p>
+<p>  &apos;&apos;&apos;
+  During startup - Warning messages:
+  1: Setting LC_COLLATE failed, using &quot;C&quot;
+  2: Setting LC_TIME failed, using &quot;C&quot;
+  3: Setting LC_MESSAGES failed, using &quot;C&quot;
+  4: Setting LC_MONETARY failed, using &quot;C&quot;
+  &apos;&apos;&apos;</p>
+<p>&#x5728;.Renviron&#x8BBE;&#x7F6E;&#x53D8;&#x91CF;&#x5373;&#x53EF;:</p>
+<p>  &apos;&apos;&apos;</p>
+<blockquote>
+<p>cat ~/.Renviron
+  R_LIBS=~/.local/R/library
+  PAGER=/usr/bin/less
+  LANGUAGE=en_US.utf8
+  LC_ALL=en_US.UTF-8
+  &apos;&apos;&apos;</p>
+</blockquote>
+</li>
+<li><p>.Rprofile</p>
+<p>&#x8BBE;&#x5B9A;CRAN&#x548C;bioconductor&#x7684;&#x955C;&#x50CF;:</p>
+<p>  &apos;&apos;&apos; </p>
+<blockquote>
+<p>cat ~/.Rprofile
+  options(repos=c(CRAN = &quot;<a href="http://mirrors.ustc.edu.cn/CRAN/" target="_blank">http://mirrors.ustc.edu.cn/CRAN/</a>&quot;),</p>
+<pre><code>      BioC_mirror=&quot;http://mirrors.ustc.edu.cn/bioc/&quot;)
+</code></pre><p>  &apos;&apos;&apos;</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="&#x5B89;&#x88C5;r&#x548C;rstudio">&#x5B89;&#x88C5;R&#x548C;Rstudio</h2>
+<p>   &#x53EF;&#x4EE5;&#x4F7F;&#x7528;brew &#x5B89;&#x88C5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;conda&#x5B89;&#x88C5;&#xFF1A;</p>
+<ul>
+<li><p>&#x4F7F;&#x7528;brew&#x5B89;&#x88C5;</p>
+<p> <code>&gt; brew cask install rstudio</code> &#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;r&#x548C;rstudio.app&#xFF0C;&#x5E76;&#x5C06;rstudio.app&#x653E;&#x5230;/Applications&#x4E0B;&#x9762;&#x3002;</p>
+</li>
+<li><p>&#x4F7F;&#x7528;conda&#x5B89;&#x88C5;</p>
+<p> <code>&gt; conda install rstudio</code>&#x4E5F;&#x4F1A;&#x81EA;&#x52A8;&#x5B89;&#x88C5;r&#x548C;rstudio.app&#xFF0C;&#x4F46;&#x662F;<code>rstudio.app</code>&#x53EA;&#x662F;&#x653E;&#x5230;conda&#x81EA;&#x5DF1;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x800C;&#x6CA1;&#x6709;&#x653E;&#x5728;<code>/Applications</code>&#x4E0B;&#x9762;&#x3002;</p>
+</li>
+<li><p>&#x4F7F;&#x7528;brew&#x5B89;&#x88C5;&#x7684;rstudio&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x7528;conda&#x5B89;&#x88C5;&#x7684;R  </p>
+<p> &#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x53D1;&#x73B0;brew&#x5B89;&#x88C5;&#x7684;R&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x5305;&#x7684;&#x65F6;&#x5019;&#x548C;conda&#x5B89;&#x88C5;&#x7684;&#x4E00;&#x4E9B;&#x4E1C;&#x897F;&#x6709;&#x51B2;&#x7A81;&#xFF0C;&#x5E76;&#x4E14;&#xFF0C;conda&#x5B89;&#x88C5;&#x8F6F;&#x4EF6;&#x66F4;&#x65B9;&#x4FBF;&#x4E00;&#x4E9B;&#x3002;&#x4E0D;&#x8FC7;&#x4E4B;&#x540E;&#x6211;&#x4E5F;&#x6709;&#x53EF;&#x80FD;&#x6362;&#x56DE;brew&#x5B89;&#x88C5;&#x7684;R&#x3002;</p>
+<p> &apos;&apos;&apos;
+ export RSTUDIO_WHICH_R=$(which R)
+ launchctl setenv RSTUDIO_WHICH_R $RSTUDIO_WHICH_R<br> &apos;&apos;&apos;</p>
+<p> &#x4E4B;&#x540E;&#x636E;&#x8BF4;&#x8981;&#x8FD0;&#x884C;<code>osascript -e &apos;tell app &quot;Dock&quot; to quit&apos;</code>&#x4F7F;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x751F;&#x6548;&#xFF0C;&#x6211;&#x8BD5;&#x4E86;&#x4E00;&#x6B21;&#x6CA1;&#x6709;&#x7528;&#x3002;&#x7B80;&#x5355;&#x6709;&#x6548;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x91CD;&#x542F;&#x7535;&#x8111;:(</p>
+</li>
+</ul>
 <script type="text/javascript">var className='atoc';</script>
                                 
                                 </section>
@@ -803,7 +865,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"R","level":"2.5.2","depth":2,"next":{"title":"Vim","level":"2.5.3","depth":2,"path":"utils/Programming/Vim/Vim.md","ref":"utils/Programming/Vim/Vim.md","articles":[]},"previous":{"title":"Python","level":"2.5.1","depth":2,"path":"utils/Programming/Python/README.md","ref":"utils/Programming/Python/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","packt-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"packt-fontsettings":{"family":"sans","size":2,"theme":"white"},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"family":"sans","size":2,"theme":"white"},"fontSettings":{"theme":"white","family":"sans","size":3},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"headerTemplate":"_AUTHOR_ | _PAGENUM_","theme":"default","_comment1":" Header HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"pageNumber":true},"_comment2":" Footer HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"footerTemplate":"上海艾迪康医学检验所","variables":{},"gitbook":"*"},"file":{"path":"utils/Programming/R/README.md","mtime":"2016-05-23T03:22:20.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-11-13T17:05:23.662Z"},"basePath":"../../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"R","level":"2.5.2","depth":2,"next":{"title":"Vim","level":"2.5.3","depth":2,"path":"utils/Programming/Vim/Vim.md","ref":"utils/Programming/Vim/Vim.md","articles":[]},"previous":{"title":"Python","level":"2.5.1","depth":2,"path":"utils/Programming/Python/README.md","ref":"utils/Programming/Python/README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["atoc","packt-fontsettings"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"packt-fontsettings":{"family":"sans","size":2,"theme":"white"},"atoc":{"addClass":true,"className":"atoc"},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"family":"sans","size":2,"theme":"white"},"fontSettings":{"theme":"white","family":"sans","size":3},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"headerTemplate":"_AUTHOR_ | _PAGENUM_","theme":"default","_comment1":" Header HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"pageNumber":true},"_comment2":" Footer HTML template. Available variables: _PAGENUM_, _TITLE_, _AUTHOR_ and _SECTION_.","structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"footerTemplate":"上海艾迪康医学检验所","variables":{},"gitbook":"*"},"file":{"path":"utils/Programming/R/README.md","mtime":"2017-02-14T13:00:54.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2017-02-14T13:02:34.708Z"},"basePath":"../../..","book":{"language":""}});
         });
     </script>
 </div>
